@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import Header from "./components/header/header-component"; 
+import Body from "./components/body/body-component";
+import Footer from "./components/footer/footer-component";
 
-function App() {
+import styles from "./styles/main-styles";
+
+/*
+  TODO:   Figure out the difference between makeStyles and useStyles 
+  TODO:   Figure out how to make multiline TODO comments
+    
+*/
+
+// Normal Comment
+//* Important
+//? What the heck?
+//! Warning
+//TODO: Make a TODO list
+
+function App() {  
+  const style = styles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div className={style.root}>
+        <Header />
+        <Body />
+        <Footer />
+      </div>
+    )
 }
 
 export default App;
+  
