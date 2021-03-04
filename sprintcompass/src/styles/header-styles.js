@@ -30,7 +30,7 @@ const styles = makeStyles((theme) => ({
     height: "3.8ch",
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(1),
-      width: "auto",
+      width: "40ch",
     },
   },
   searchIcon: {
