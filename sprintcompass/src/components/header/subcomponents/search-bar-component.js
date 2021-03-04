@@ -11,8 +11,7 @@ const SearchBar = () => {
     <div className={style.search}>
       <div className={style.searchIcon}>
         <SearchIcon />
-      </div>
-      <InputBase
+        <InputBase
         placeholder="Search…"
         fullWidth={true}
         classes={{
@@ -21,6 +20,7 @@ const SearchBar = () => {
         }}
         inputProps={{ "aria-label": "search" }}
       />
+      </div>
     </div>
   );
 };
