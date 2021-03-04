@@ -30,7 +30,7 @@ const styles = makeStyles((theme) => ({
     height: "3.8ch",
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(1),
-      width: "auto",
+      width: "40ch",
     },
   },
   searchIcon: {
@@ -49,15 +49,16 @@ const styles = makeStyles((theme) => ({
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create("width"),
+    //paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    paddingLeft: "14%",
+    //transition: theme.transitions.create("width"),
     width: "100%",
-    [theme.breakpoints.up("sm")]: {
+    /*[theme.breakpoints.up("sm")]: {
         width: "40ch",
         "&:focus": {
           width: "40ch",
         },
-    },
+    },*/
   },
   LogoIcon: {
     height: "40px",

@@ -5,18 +5,19 @@ import InputBase from "@material-ui/core/InputBase";
 import styles from "../../../styles/header-styles";
 
 const SearchBar = () => {
-  const classes = styles();
+  const style = styles();
 
   return (
-    <div className={classes.search}>
-      <div className={classes.searchIcon}>
+    <div className={style.search}>
+      <div className={style.searchIcon}>
         <SearchIcon />
       </div>
       <InputBase
         placeholder="Search…"
+        fullWidth={true}
         classes={{
-          root: classes.inputRoot,
-          input: classes.inputInput,
+          root: style.inputRoot,
+          input: style.inputInput,
         }}
         inputProps={{ "aria-label": "search" }}
       />

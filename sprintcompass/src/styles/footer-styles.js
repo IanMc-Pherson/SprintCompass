@@ -7,8 +7,8 @@ const styles = makeStyles({
         width: "100%",
     },
 
-    appBar: {
-        background: 'linear-gradient(45deg, #bdbdbd 60%, #e0e0e0 90%)', 
+    appBar: {    
+        background: 'linear-gradient(45deg, #bdbdbd 40%, #e0e0e0 90%)', 
         border: 0,
     },
     copyrightContainer: {

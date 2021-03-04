@@ -10,7 +10,7 @@ const styles = makeStyles((theme) => ({
     justifyContent: "center",
     width: "98%", //? Yeah not sure
     height: "100%",
-    padding:"1%"
+    padding: "1%"
     //maxWidth: "200vh",
     //maxHeight: "79.5vh"
   },
@@ -59,7 +59,7 @@ const styles = makeStyles((theme) => ({
     display: "flex",
     flex: 1,
     padding: "1%",
-    marginBottom: "5%",
+    marginBottom: "6%",
     backgroundColor: "white",
     borderRadius: 10
   },
