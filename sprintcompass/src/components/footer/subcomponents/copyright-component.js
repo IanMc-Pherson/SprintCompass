@@ -9,7 +9,7 @@ const Copyright = () => {
 
   return (
     <div>
-        <Typography color="textPrimary" className={style.copyright}>© Sprint Compass 2020</Typography>
+        <Typography color="textPrimary" className={style.copyright}>© Sprint Compass 2021</Typography>
     </div>
   );
 };

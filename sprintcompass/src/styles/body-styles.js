@@ -1,25 +1,25 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const styles = makeStyles((theme) => ({
-
-
   root: {
     display: "flex",
     flexDirection: "row",
     backgroundColor: "#f5f5f5",
     justifyContent: "center",
-    width: "98%", //? Yeah not sure
+    width: "97%", 
     height: "100%",
-    padding: "1%"
+    padding: "1%",
+    paddingLeft: "1.5%",
+    paddingRight: "1.5%"
     //maxWidth: "200vh",
     //maxHeight: "79.5vh"
   },
   leftContainer: {    
     display: "flex",
-    flex: 2,
+    flex: 3,
     //backgroundColor: "blue",
     flexDirection: "column",
-    paddingRight: "2%"
+    paddingRight: "1.5%"
     //padding: "2%"
   },
   rightContainer: {  
@@ -40,8 +40,8 @@ const styles = makeStyles((theme) => ({
 
   mainPaper: {
     display: "flex",
-    flex: 12,
-    padding: "1%",
+    flex: 20,
+    padding: "1.3%",
     backgroundColor: "white",
     borderRadius: 10
   },
@@ -49,8 +49,10 @@ const styles = makeStyles((theme) => ({
   statusBarPaper: {
     display: "flex",
     flex: 1,
-    padding: "1%",
+    padding: "0.8%",
     backgroundColor: "white",
+    justifyContent: "center",
+    alignContent: "center",
     borderRadius: 10
   },
 
@@ -58,7 +60,7 @@ const styles = makeStyles((theme) => ({
   calendarPaper: {
     display: "flex",
     flex: 1,
-    padding: "1%",
+    padding: "2%",
     marginBottom: "6%",
     backgroundColor: "white",
     borderRadius: 10
@@ -67,7 +69,7 @@ const styles = makeStyles((theme) => ({
   activityPaper: {
     display: "flex",
     flex: 1,
-    padding: "1%",
+    padding: "2%",
     backgroundColor: "white",
     borderRadius: 10
   },

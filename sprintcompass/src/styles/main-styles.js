@@ -6,6 +6,13 @@ const styles = makeStyles((theme) => ({
       flexDirection: "column",
       width: "100vw",
       height: "100vh",
+    },
+
+    overlay: {
+      background:"transparent",
+      boxShadow: "none",
+      width: "100%",
+      height: "100%"
     }
   }));
 

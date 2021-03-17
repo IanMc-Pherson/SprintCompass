@@ -9,7 +9,6 @@ import styles from "./styles/main-styles";
 /*
   TODO:   Figure out the difference between makeStyles and useStyles 
   TODO:   Figure out how to make multiline TODO comments
-    
 */
 
 // Normal Comment
