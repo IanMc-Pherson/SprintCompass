@@ -22,18 +22,6 @@ const resolvers =
    let db = await dbRtns.getDBInstance();
    return await dbRtns.findAll(db, taskcollection, {storyDescription: args.storyDescription}, {})
  },
- calculatePercentage: async args => 
- {
-   let db = await dbRtns.getDBInstance();
-   let results = await dbRtns.findAll(db, taskcollection, {storyDescription: args.storyDescription}, {});
-   let totalWorked = 0;
-   let totalLeft = 0;
-   results.data.subtasks.map((task) => {
-    totalWorked += task.hoursWorked;
-    totalLeft += task.hoursLeft;
-    });
-   return (totalWorked / (totalLeft + totalWorked)) * 100
- },
  addteam: async args => 
  {
    let db = await dbRtns.getDBInstance();
