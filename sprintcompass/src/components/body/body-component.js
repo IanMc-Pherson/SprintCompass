@@ -40,7 +40,6 @@ import StatusBar from "../paper-functions/status-bar/status-bar-percentage";
 const Body = () => {
   const style = styles(theme);
 
-
   return (
     <MuiThemeProvider theme={theme}>
       <div className={style.root}>

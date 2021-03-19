@@ -12,6 +12,8 @@ const FunctionSelector = (props) => {
       return (<TeamMemberList />);
     case 3:
       return (<BasicProjectInfo />);
+    default:
+      return 0;
   }
 };
 

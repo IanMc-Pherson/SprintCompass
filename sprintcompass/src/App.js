@@ -9,7 +9,8 @@ import styles from "./styles/main-styles";
 /*
   TODO:   Figure out the difference between makeStyles and useStyles 
   TODO:   Figure out how to make multiline TODO comments
-*/
+  TODO:   Styles are fucked. Need to define all the colors in the theme and only reference from theme. No random hex colors
+  */
 
 // Normal Comment
 //* Important

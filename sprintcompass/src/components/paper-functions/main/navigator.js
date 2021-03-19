@@ -10,8 +10,6 @@ import NavigateNext from "@material-ui/icons/NavigateNext";
 import theme from "../../../theme";
 import styles from "../../../styles/navigator-styles";
 
-import ProductBacklog from "./product-backlog";
-
 import FunctionSelector from "./functionSelector";
 
 const Titles = [
