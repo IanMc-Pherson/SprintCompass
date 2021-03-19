@@ -5,7 +5,6 @@ type Query {
     team_members(teamName: String): [TeamMember],
     stories(productName: String): [Story],
     subtasks(storyDescription: String): [SubTask],
-    calculatePercentage(storyDescription: String): Float
 }
 type Team {
     name: String
