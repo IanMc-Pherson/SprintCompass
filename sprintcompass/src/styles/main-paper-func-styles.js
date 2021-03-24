@@ -16,6 +16,7 @@ const styles = makeStyles((theme) => ({
     justifyContent: "center",
     alignContent: "center",
     backgroundColor: "#f5f5f5",
+    //backgroundColor: "white",
     boxShadow: " 0 0 0",
     borderRadius: "0px 0px 10px 10px;",
   },

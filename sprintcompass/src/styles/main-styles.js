@@ -6,6 +6,9 @@ const styles = makeStyles((theme) => ({
       flexDirection: "column",
       width: "100vw",
       height: "100vh",
+      maxWidth: "100vw",
+      maxHeight: "100vh",
+      
     },
 
     overlay: {
