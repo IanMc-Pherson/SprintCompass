@@ -12,21 +12,21 @@ import Navigator from "../paper-functions/main/navigator";
 import StatusBar from "../paper-functions/status-bar/status-bar-percentage";
 
 //* ----------------------------- mainPaper Functions ----------------------------- *//
-//* Capture & maintain basic project information
+//* Capture & maintain basic project information (1)
 
-//* Capture & maintain a list of team members assigned to the project
+//* Capture & maintain a list of team members assigned to the project (1)
 
-//* Capture & maintain the product backlog including relative estimates
+//* Capture & maintain the product backlog including relative estimates (2)
 
-//* Capture & maintain the list of stories included in a given Sprint
+//* Capture & maintain the list of stories included in a given Sprint (2)
 
-//* Capture & maintain subtasks for each user story that is included in a Sprint Plan
+//* Capture & maintain subtasks for each user story that is included in a Sprint Plan (2)
 
-//* Capture the hours worked and an esitmate of time to complete each subtask
+//* Capture the hours worked and an esitmate of time to complete each subtask (2)
 
-//* Generate a Sprint summary report (in PDF, XLSX or Printed formats) that reports status, time spent and any re-estimates
+//* Generate a Sprint summary report (in PDF, XLSX or Printed formats) that reports status, time spent and any re-estimates (3)
 
-//* Dashboard
+//* Dashboard 
 
 //* -------------------------- statusBarPaper Functions --------------------------- *//
 //* Calculate the % compelete of any story - should be done on the server

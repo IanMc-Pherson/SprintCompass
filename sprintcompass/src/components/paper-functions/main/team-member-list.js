@@ -373,12 +373,6 @@ const TeamMemberList = () => {
       else {
         setDirect(3);
       }
-
-      // save to local storage
-      //localStorage.setItem('teams',json);
-
-      //else
-      //setDirect(2); //? Creates visual bug, a quick flash of I think '0' at the top of the paper.
     }
     fetchTeams();
   }, []);
