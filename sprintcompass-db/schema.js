@@ -37,6 +37,7 @@ type Story {
     storyDescription: String
     pointEstimate: Int
     costEstimate: Float
+    status: String
 } 
 type SubTask {
     subtaskID: Int
@@ -44,6 +45,8 @@ type SubTask {
     taskDescription: String
     hoursWorked: Int
     hoursLeft: Int
+    status: String
+    assignedTo: String
 }
 type Mutation {
     addteam(name: String, product: String, startDate: String, hoursToPoint: Int, totalPoints: Int, totalCost: Float): Team,
@@ -51,8 +54,8 @@ type Mutation {
 
     addProduct(productID: Int, productName: String): Product,
     addSprint(sprintID: Int, productID: Int, sprintNumber: Int): Sprint,
-    addStory(storyID: Int, sprintID: Int, storyDescription: String, pointEstimate: Int, costEstimate: Float): Story,
-    addSubtask(subtaskID: Int, storyID: Int, taskDescription: String, hoursWorked: Int, hoursLeft: Int): SubTask,
+    addStory(storyID: Int, sprintID: Int, storyDescription: String, pointEstimate: Int, costEstimate: Float, status: String): Story,
+    addSubtask(subtaskID: Int, storyID: Int, taskDescription: String, hoursWorked: Int, hoursLeft: Int, status: String, assignedTo: String): SubTask,
     updateSubtask(subtaskID: Int, storyID: Int, taskDescription: String, hoursWorked: Int, hoursLeft: Int): String
 
    }

@@ -117,7 +117,8 @@ const resolvers = {
       sprintID: args.sprintID,
       storyDescription: args.storyDescription,
       pointEstimate: args.pointEstimate,
-      costEstimate: args.costEstimate
+      costEstimate: args.costEstimate,
+      status: args.status
     };
 
     let results = await dbRtns.addOne(db, storycollection, story);
@@ -132,7 +133,9 @@ const resolvers = {
       storyID: args.storyID,
       taskDescription: args.taskDescription,
       hoursWorked: args.hoursWorked,
-      hoursLeft: args.hoursLeft 
+      hoursLeft: args.hoursLeft,
+      status: args.status,
+      assignedTo: args.assignedTo
     };
 
     let results = await dbRtns.addOne(db, taskcollection, subtask);
@@ -146,7 +149,9 @@ const resolvers = {
       //storyID: args.storyID,
       taskDescription: args.taskDescription,
       hoursWorked: args.hoursWorked,
-      hoursLeft: args.hoursLeft
+      hoursLeft: args.hoursLeft,
+      status: args.status,
+      assignedTo: args.assignedTo
     };
     let results = await dbRtns.updateOne(
       db, 
@@ -155,7 +160,9 @@ const resolvers = {
       {
         taskDescription: subtask.taskDescription,
         hoursWorked: subtask.hoursWorked,
-        hoursLeft: subtask.hoursLeft
+        hoursLeft: subtask.hoursLeft,
+        status: subtask.status,
+        assignedTo: subtask.assignedTo
       }
     );
     return results.lastErrorObject.updatedExisting
