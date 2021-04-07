@@ -132,7 +132,7 @@ const resolvers = {
       storyID: args.storyID,
       taskDescription: args.taskDescription,
       hoursWorked: args.hoursWorked,
-      hoursLeft: args.hoursLeft
+      hoursLeft: args.hoursLeft 
     };
 
     let results = await dbRtns.addOne(db, taskcollection, subtask);
