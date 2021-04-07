@@ -269,7 +269,7 @@ const MainPage = (props) => {
     hoursPerPoint: "",
     totalPoints: "",
     totalCost: "",
-    showTeam: true
+    showTeam: true,
   };
 
   // State will hold selected team
@@ -278,7 +278,7 @@ const MainPage = (props) => {
 
   const setSelectedTeam = (teamName) => {
     // find team
-    for(let i = 0; i < teams.length; i++) {
+    for (let i = 0; i < teams.length; i++) {
       if (teams[i].name === teamName) {
         setTeam({
           teamName: teams[i].name,
@@ -287,12 +287,12 @@ const MainPage = (props) => {
           hoursPerPoint: teams[i].hoursToPoint,
           totalPoints: teams[i].totalPoints,
           totalCost: teams[i].totalCost,
-          showTeam: false
-        })
+          showTeam: false,
+        });
         break;
       }
     }
-  } 
+  };
 
   return (
     <MuiThemeProvider theme={theme}>
@@ -310,7 +310,7 @@ const MainPage = (props) => {
           <div className={classes.bodyContainer}>
             <div className={classes.leftContainer}>
               <div className={classes.teamListContainer}>
-                <TableContainer style={{maxHeight: "80%"}}>
+                <TableContainer style={{ maxHeight: "80%" }}>
                   <Table
                     stickyHeader
                     aria-label="simple table"
@@ -319,7 +319,12 @@ const MainPage = (props) => {
                     <TableBody>
                       {teams.map((res) => (
                         <TableRow hover={true} key={res.name}>
-                          <TableCell className={classes.tableCell} onClick={() => {setSelectedTeam(res.name);}}>
+                          <TableCell
+                            className={classes.tableCell}
+                            onClick={() => {
+                              setSelectedTeam(res.name);
+                            }}
+                          >
                             <Typography className={classes.tableText}>
                               {res.name}: {res.product}
                             </Typography>
@@ -339,15 +344,54 @@ const MainPage = (props) => {
                   Create Team
                 </Button>
               </div>
-            </div>  
+            </div>
             <div className={classes.rightContainer}>
               <div className={classes.teamContainer}>
-                  <Typography className={classes.text} hidden={team.showTeam}>Team Name: {team.teamName}</Typography>
-                  <Typography className={classes.text} hidden={team.showTeam}>Product: {team.product}</Typography>
-                  <Typography className={classes.text} hidden={team.showTeam}>Start Date: {team.startDate}</Typography>
-                  <Typography className={classes.text} hidden={team.showTeam}>Hours Per Point: {team.hoursPerPoint}</Typography>
-                  <Typography className={classes.text} hidden={team.showTeam}>Total Points: {team.totalPoints}</Typography>
-                  <Typography className={classes.text} hidden={team.showTeam}>Total Cost: {team.totalCost}</Typography>
+                <div className={classes.topColumnContainer}>
+                  <div className={classes.leftRowContainer}>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                      Team Name:
+                    </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                      Product:
+                    </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                      Start Date:
+                    </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                      Hours Per Point:
+                    </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                      Total Points:
+                    </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                      Total Cost:
+                    </Typography>
+                  </div>
+                  <div className={classes.rightRowContainer}>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                      {team.teamName}
+                    </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                      {team.product}
+                    </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                      {team.startDate}
+                    </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                      {team.hoursPerPoint}
+                    </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                      {team.totalPoints}
+                    </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                      {team.totalCost}
+                    </Typography>
+                  </div>
+                </div>
+                <div className={classes.bottomColumnContainer}>
+                            
+                </div>
               </div>
             </div>
           </div>
@@ -369,8 +413,7 @@ const TeamMemberList = () => {
       //* If the list is empty, I set the 'direct' to 1, meaning the Navigator component will direct to the NoTeams component
       if (!json.length) {
         setDirect(1);
-      }
-      else {
+      } else {
         setDirect(3);
       }
     }

@@ -9,7 +9,7 @@ const getDBInstance = async () =>
     console.log("using established connection");
     return db;
  }
- try 
+ try
  {
     console.log("establishing new connection to Atlas");
     const conn = await MongoClient.connect(atlas, {

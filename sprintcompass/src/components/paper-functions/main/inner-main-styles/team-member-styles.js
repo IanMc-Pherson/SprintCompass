@@ -34,7 +34,7 @@ const styles = makeStyles((theme) => ({
     flex: 1,
     flexDirection: "column",   
   },
-  rightContainer: {
+  rightContainer: { 
     display: "flex",
     flex: 2,
     flexDirection: "column",
@@ -85,6 +85,35 @@ const styles = makeStyles((theme) => ({
     alignSelf: "flex-end"
   },
 
+  topColumnContainer: {
+    display: "flex",
+    flexDirection: "row",
+    flex: 1
+  },
+
+  bottomColumnContainer: {
+    display: "flex",
+    flex:2,
+    flexDirection: "row",
+    
+    backgroundColor: "green"
+  },
+
+  leftRowContainer: {
+    display: "flex",
+    flexDirection: "column",
+    flex: 1,
+    justifyContent: "space-around"
+  },
+
+  rightRowContainer: {
+    display: "flex",
+    flexDirection: "column",
+    flex: 4,
+    justifyContent: "space-around"
+  },
+
+
   //* No Teams Stuff 
 
   noTeamsContainer: {
@@ -103,7 +132,7 @@ const styles = makeStyles((theme) => ({
 
 
 
-  
+
   //* General, reusable
   tableContainer: {
     maxHeight: "40%"

@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const dbRtns = require("./dbroutines");
 const setup = require("./setupalerts");
+
 // define a default route to retrieve all users
 router.get("/setup", async (req, res) => {
  try {
