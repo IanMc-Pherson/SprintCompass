@@ -96,7 +96,7 @@ const styles = makeStyles((theme) => ({
     flex:2,
     flexDirection: "row",
     
-    backgroundColor: "green"
+    //backgroundColor: "green"
   },
 
   leftRowContainer: {

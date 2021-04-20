@@ -15,7 +15,7 @@ import FunctionSelector from "./functionSelector";
 const Titles = [
   "",
   "Product Backlog",
-  "Team Member List",
+  "Teams",
   "Basic Project Information"
 ]
 

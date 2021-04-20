@@ -12,14 +12,13 @@ const resolvers = {
     let db = await dbRtns.getDBInstance();
     return await dbRtns.findAll(db, teamcollection, {}, {});
   },
-  team_members: async (args) => {
+  products: async() => {
     let db = await dbRtns.getDBInstance();
-    return await dbRtns.findAll(
-      db,
-      memcollection,
-      { teamName: args.teamName },
-      {}
-    );
+    return await dbRtns.findAll(db, productscollection, {}, {});
+  },
+  team_members: async () => {
+    let db = await dbRtns.getDBInstance();
+    return await dbRtns.findAll(db, memcollection, {}, {});
   },
   addteam: async (args) => {
     let db = await dbRtns.getDBInstance();
@@ -38,8 +37,7 @@ const resolvers = {
     let db = await dbRtns.getDBInstance();
     let mem = {
       teamName: args.teamName,
-      firstName: args.firstName,
-      lastName: args.lastName,
+      name: args.name,
     };
     let results = await dbRtns.addOne(db, memcollection, mem);
     return results.insertedCount === 1 ? mem : null;
@@ -58,11 +56,6 @@ const resolvers = {
   addSubtask
   updateSubtask
   */
-
-  products: async() => {
-    let db = await dbRtns.getDBInstance();
-    return await dbRtns.findAll(db, productscollection, {}, {});
-  },
   // accepts productID
   sprints: async(args) => {
     let db = await dbRtns.getDBInstance();

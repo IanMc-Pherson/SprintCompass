@@ -3,7 +3,7 @@ const { buildSchema } = require("graphql");
 const schema = buildSchema(`
 type Query {
     teams: [Team],
-    team_members(teamName: String): [TeamMember],
+    team_members: [TeamMember],
     products: [Product],
     sprints(productID: Int): [Sprint],
     stories(sprintID: Int): [Story],
@@ -19,8 +19,7 @@ type Team {
 }
 type TeamMember {
     teamName: String
-    firstName: String
-    lastName: String
+    name: String
 }
 type Product {
     productID: Int
@@ -37,7 +36,6 @@ type Story {
     storyDescription: String
     pointEstimate: Int
     costEstimate: Float
-    status: String
 } 
 type SubTask {
     subtaskID: Int
@@ -45,17 +43,16 @@ type SubTask {
     taskDescription: String
     hoursWorked: Int
     hoursLeft: Int
-    status: String
     assignedTo: String
 }
 type Mutation {
     addteam(name: String, product: String, startDate: String, hoursToPoint: Int, totalPoints: Int, totalCost: Float): Team,
-    addmember(teamName: String, firstName: String, lastName: String): TeamMember,
+    addmember(teamName: String, name: String): TeamMember,
 
     addProduct(productID: Int, productName: String): Product,
     addSprint(sprintID: Int, productID: Int, sprintNumber: Int): Sprint,
-    addStory(storyID: Int, sprintID: Int, storyDescription: String, pointEstimate: Int, costEstimate: Float, status: String): Story,
-    addSubtask(subtaskID: Int, storyID: Int, taskDescription: String, hoursWorked: Int, hoursLeft: Int, status: String, assignedTo: String): SubTask,
+    addStory(storyID: Int, sprintID: Int, storyDescription: String, pointEstimate: Int, costEstimate: Float): Story,
+    addSubtask(subtaskID: Int, storyID: Int, taskDescription: String, hoursWorked: Int, hoursLeft: Int, assignedTo: String): SubTask,
     updateSubtask(subtaskID: Int, storyID: Int, taskDescription: String, hoursWorked: Int, hoursLeft: Int): String
 
    }

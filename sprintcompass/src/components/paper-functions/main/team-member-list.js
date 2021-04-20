@@ -31,7 +31,11 @@ import styles from "./inner-main-styles/team-member-styles";
 //*
 
 import LoadTeams from "../grapql/loadTeams";
+import LoadTeamMembers from "../grapql/loadTeamMembers";
 import CreateTeam from "../grapql/createTeam";
+import CreateMember from "../grapql/createMember";
+import LoadProducts from "../grapql/loadProducts";
+import CreateProduct from "../grapql/createProduct";
 
 const LoadTeamSetup = async () => await LoadTeams();
 
@@ -125,6 +129,21 @@ const CreateTeamPage = (props) => {
     // Refresh teams in local storage
     let teams = await LoadTeamSetup();
     localStorage.setItem("teams", JSON.stringify(teams));
+
+    let products = await LoadProducts();
+
+    for (let i = 0; i < teams.length; i++) 
+    {
+      const found = products.find(product => product.productName === teams[i].product);
+  
+      if (!found)
+      {
+        const lastProduct = products.slice(-1)
+        let newID = lastProduct.productID + 1
+  
+        CreateProduct(newID, teams[i].product);
+      }
+    };
 
     // Clear inputs
     clearInputs();
@@ -276,6 +295,9 @@ const MainPage = (props) => {
   const reducer = (team, newTeam) => ({ ...team, ...newTeam });
   const [team, setTeam] = useReducer(reducer, initialTeam);
 
+  const [teamMembers, setTeamMembers] = useState([]);
+  const [name, setName] = useState("");
+
   const setSelectedTeam = (teamName) => {
     // find team
     for (let i = 0; i < teams.length; i++) {
@@ -291,7 +313,38 @@ const MainPage = (props) => {
         });
         break;
       }
-    }
+    };
+
+    getTeamMembers(teamName);
+  };
+
+  const getTeamMembers = async (teamName) => {
+    let members = await LoadTeamMembers();
+
+    let teamMembers = [];
+    
+    for (let i = 0; i < members.length; i++) {
+      if (members[i].teamName === teamName) {
+        teamMembers.push(members[i]);
+      }
+    };
+
+    setTeamMembers(teamMembers);
+  };
+
+  const graphqlCreateMember = async () => {
+    console.log("Creating Member...");
+
+    await CreateMember(
+      team.teamName,
+      name,
+    );
+
+    // Refresh teams in local storage
+    getTeamMembers(team.teamName);
+
+    // Clear inputs
+    setName("");
   };
 
   return (
@@ -367,8 +420,50 @@ const MainPage = (props) => {
                     <Typography className={classes.text} hidden={team.showTeam}>
                       Total Cost:
                     </Typography>
+                    <div hidden={team.showTeam}>
+                    <Divider
+                      variant="fullWidth"
+                      style={{ height: "2px", background: theme.palette.primary.main }}
+                    />
+                    </div>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                      Team Members:
+                    </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>                    
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>    
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>    
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>    
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>                
+                    <div>
+                    <div hidden={team.showTeam}>
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      className={classes.createTeamButton}
+                      onClick={graphqlCreateMember}
+                    >
+                      Add Member
+                    </Button> 
+                    </div>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>   
+                  </div>                  
                   </div>
                   <div className={classes.rightRowContainer}>
+                    <div>
                     <Typography className={classes.text} hidden={team.showTeam}>
                       {team.teamName}
                     </Typography>
@@ -387,6 +482,40 @@ const MainPage = (props) => {
                     <Typography className={classes.text} hidden={team.showTeam}>
                       {team.totalCost}
                     </Typography>
+                    </div>
+                    <div hidden={team.showTeam}>
+                    <Divider
+                      variant="fullWidth"
+                      style={{ height: "2px", background: theme.palette.primary.main }}
+                    />
+                    </div>
+                    <div>
+                    <TableContainer style={{ maxHeight: 150 }} hidden={team.showTeam}>
+                      <Table stickyHeader>
+                        <TableBody>
+                          {teamMembers.map(mem => {
+                            return (
+                              <TableRow key={mem.name}>
+                                <TableCell>
+                                  <Typography className={classes.text} hidden={team.showTeam} variant={'h1'}>
+                                    {mem.name}
+                                  </Typography>
+                                </TableCell>
+                              </TableRow>
+                            );
+                          })}
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
+                      <div hidden={team.showTeam}>
+                      <TextField
+                        label="Name"
+                        style={{ width: "100%" }}
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className={classes.bottomColumnContainer}>
