@@ -5,9 +5,9 @@ type Query {
     teams: [Team],
     team_members: [TeamMember],
     products: [Product],
-    sprints(productID: Int): [Sprint],
-    stories(sprintID: Int): [Story],
-    subtasks(storyID: Int): [SubTask],
+    sprints: [Sprint],
+    stories: [Story],
+    subtasks: [SubTask],
 }
 type Team {
     name: String
@@ -33,6 +33,7 @@ type Sprint {
 type Story {
     storyID: Int
     sprintID: Int
+    productID: Int
     storyDescription: String
     pointEstimate: Int
     costEstimate: Float
@@ -51,7 +52,7 @@ type Mutation {
 
     addProduct(productID: Int, productName: String): Product,
     addSprint(sprintID: Int, productID: Int, sprintNumber: Int): Sprint,
-    addStory(storyID: Int, sprintID: Int, storyDescription: String, pointEstimate: Int, costEstimate: Float): Story,
+    addStory(storyID: Int, sprintID: Int, productID: Int, storyDescription: String, pointEstimate: Int, costEstimate: Float): Story,
     addSubtask(subtaskID: Int, storyID: Int, taskDescription: String, hoursWorked: Int, hoursLeft: Int, assignedTo: String): SubTask,
     updateSubtask(subtaskID: Int, storyID: Int, taskDescription: String, hoursWorked: Int, hoursLeft: Int): String
 

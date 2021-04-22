@@ -16,7 +16,7 @@ const LoadProducts = async () => {
 
     let json = await products.json();
 
-    console.log(json);
+    //console.log(json);
 
     return json.data.products;
   } catch (error) {

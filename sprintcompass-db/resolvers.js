@@ -57,7 +57,7 @@ const resolvers = {
   updateSubtask
   */
   // accepts productID
-  sprints: async(args) => {
+ /*  sprints: async(args) => {
     let db = await dbRtns.getDBInstance();
     return await dbRtns.findAll(db, sprintscollection, {productID: args.productID}, {});
   },
@@ -70,7 +70,24 @@ const resolvers = {
   subtasks: async(args) => {
     let db = await dbRtns.getDBInstance();
     return await dbRtns.findAll(db, taskcollection, {storyID: args.storyID}, {});
+  }, */
+
+  //! Updated to remove need for IDs
+  sprints: async() => {
+    let db = await dbRtns.getDBInstance();
+    return await dbRtns.findAll(db, sprintscollection, {}, {});
   },
+  // accepts sprintID
+  stories: async() => {
+    let db = await dbRtns.getDBInstance();
+    return await dbRtns.findAll(db, storycollection, {}, {});
+  },
+  // accepts storyID
+  subtasks: async() => {
+    let db = await dbRtns.getDBInstance();
+    return await dbRtns.findAll(db, taskcollection, {}, {});
+  },
+
 
   // accepts productID (generated clientside), productName 
   addProduct: async(args) => {
@@ -98,8 +115,6 @@ const resolvers = {
     let results = await dbRtns.addOne(db, sprintscollection, sprint);
     return results.insertedCount === 1 ? sprint : null;
 
-     //? Could work, might break my calling .insertedCount too soon
-    //return await dbRtns.addOne(db, sprintscollection, sprint).insertedCount === 1 ? sprint : null;
   },
 
   addStory: async(args) => {
@@ -108,6 +123,7 @@ const resolvers = {
     let story = {
       storyID: args.storyID,
       sprintID: args.sprintID,
+      productID: args.productID,
       storyDescription: args.storyDescription,
       pointEstimate: args.pointEstimate,
       costEstimate: args.costEstimate,

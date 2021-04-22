@@ -14,9 +14,9 @@ import FunctionSelector from "./functionSelector";
 
 const Titles = [
   "",
-  "Product Backlog",
+  "Sprint Plan",
   "Teams",
-  "Basic Project Information"
+  "Product Backlogs"
 ]
 
 // Increase when new selections are added

@@ -94,7 +94,7 @@ const styles = makeStyles((theme) => ({
   bottomColumnContainer: {
     display: "flex",
     flex:2,
-    flexDirection: "row",
+    flexDirection: "column",
     
     //backgroundColor: "green"
   },
@@ -103,6 +103,20 @@ const styles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     flex: 1,
+    justifyContent: "space-around"
+  },
+
+  middleRowContainer: {
+    display: "flex",
+    flexDirection: "column",
+    flex: 2,
+    justifyContent: "space-around"
+  },
+
+  rightRowContainer2: {
+    display: "flex",
+    flexDirection: "column",
+    flex: 2,
     justifyContent: "space-around"
   },
 

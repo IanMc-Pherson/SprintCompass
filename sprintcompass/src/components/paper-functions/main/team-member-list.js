@@ -138,8 +138,9 @@ const CreateTeamPage = (props) => {
   
       if (!found)
       {
-        const lastProduct = products.slice(-1)
-        let newID = lastProduct.productID + 1
+        let lastProduct = products.slice(-1)
+
+        let newID = lastProduct[0].productID + 1
   
         CreateProduct(newID, teams[i].product);
       }
@@ -335,16 +336,19 @@ const MainPage = (props) => {
   const graphqlCreateMember = async () => {
     console.log("Creating Member...");
 
-    await CreateMember(
-      team.teamName,
-      name,
-    );
-
-    // Refresh teams in local storage
-    getTeamMembers(team.teamName);
-
-    // Clear inputs
-    setName("");
+    if (name !== "")
+    {
+      await CreateMember(
+        team.teamName,
+        name,
+      );
+  
+      // Refresh teams in local storage
+      getTeamMembers(team.teamName);
+  
+      // Clear inputs
+      setName("");
+    }
   };
 
   return (
@@ -402,24 +406,48 @@ const MainPage = (props) => {
               <div className={classes.teamContainer}>
                 <div className={classes.topColumnContainer}>
                   <div className={classes.leftRowContainer}>
+                  <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>  
                     <Typography className={classes.text} hidden={team.showTeam}>
                       Team Name:
                     </Typography>
                     <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>  
+                    <Typography className={classes.text} hidden={team.showTeam}>
                       Product:
                     </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>  
                     <Typography className={classes.text} hidden={team.showTeam}>
                       Start Date:
                     </Typography>
                     <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>  
+                    <Typography className={classes.text} hidden={team.showTeam}>
                       Hours Per Point:
                     </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography> 
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>   
                     <Typography className={classes.text} hidden={team.showTeam}>
                       Total Points:
                     </Typography>
                     <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>  
+                    <Typography className={classes.text} hidden={team.showTeam}>
                       Total Cost:
                     </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>   
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>   
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>   
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>   
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>  
                     <div hidden={team.showTeam}>
                     <Divider
                       variant="fullWidth"
@@ -428,7 +456,7 @@ const MainPage = (props) => {
                     </div>
                     <Typography className={classes.text} hidden={team.showTeam}>
                       Team Members:
-                    </Typography>
+                    </Typography> 
                     <Typography className={classes.text} hidden={team.showTeam}>
                     </Typography>
                     <Typography className={classes.text} hidden={team.showTeam}>
@@ -438,15 +466,13 @@ const MainPage = (props) => {
                     <Typography className={classes.text} hidden={team.showTeam}>
                     </Typography>
                     <Typography className={classes.text} hidden={team.showTeam}>
-                    </Typography>                    
+                    </Typography>
                     <Typography className={classes.text} hidden={team.showTeam}>
-                    </Typography>    
+                    </Typography>
                     <Typography className={classes.text} hidden={team.showTeam}>
-                    </Typography>    
-                    <Typography className={classes.text} hidden={team.showTeam}>
-                    </Typography>    
-                    <Typography className={classes.text} hidden={team.showTeam}>
-                    </Typography>                
+                    </Typography>
+                                        <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>
                     <div>
                     <div hidden={team.showTeam}>
                     <Button
@@ -482,6 +508,10 @@ const MainPage = (props) => {
                     <Typography className={classes.text} hidden={team.showTeam}>
                       {team.totalCost}
                     </Typography>
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>  
+                    <Typography className={classes.text} hidden={team.showTeam}>
+                    </Typography>  
                     </div>
                     <div hidden={team.showTeam}>
                     <Divider
@@ -490,14 +520,14 @@ const MainPage = (props) => {
                     />
                     </div>
                     <div>
-                    <TableContainer style={{ maxHeight: 150 }} hidden={team.showTeam}>
+                    <TableContainer style={{ maxHeight: 70 }} hidden={team.showTeam}>
                       <Table stickyHeader>
                         <TableBody>
                           {teamMembers.map(mem => {
                             return (
                               <TableRow key={mem.name}>
                                 <TableCell>
-                                  <Typography className={classes.text} hidden={team.showTeam} variant={'h1'}>
+                                  <Typography className={classes.text} hidden={team.showTeam}>
                                     {mem.name}
                                   </Typography>
                                 </TableCell>
